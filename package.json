@@ -1,0 +1,58 @@
+{
+  "name": "ahungrynoob",
+  "version": "0.1.0",
+  "description": "My personal blog",
+  "scripts": {
+    "start": "beidou start",
+    "debug": "beidou debug --inspect-brk",
+    "stop": "beidou stop",
+    "dev": "beidou dev",
+    "check": "tsc",
+    "lint": "tsc && tslint -c tslint.json --fix '**/*.{ts,tsx}' ",
+    "build": "rimraf build/ && tsc && beidou build",
+    "build:node": "tsc && beidou build --target=node",
+    "test": "beidou test --ts",
+    "ci": "beidou cov --ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "beidou": "^2.2.1",
+    "beidou-cli": "^2.1.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/webpack": "^4.4.20",
+    "egg-ci": "^1.13.0",
+    "egg-mock": "^3.24.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^7.3.0",
+    "rimraf": "^3.0.0",
+    "tslint": "^5.20.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0"
+  },
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9"
+  ],
+  "config": {
+    "typescript": true
+  }
+}
