@@ -1,8 +1,18 @@
 # Ahungrynoob
 
-![ahungrynoob](./logo.png)
+<div style="text-align:center">
+	<img src="./logo.png" />
+</div>
 
 个人博客，不限于技术、生活等等
+
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+
+[travis-image]: https://img.shields.io/travis/ahungrynoob/ahungrynoob.svg?style=flat-square
+[travis-url]: https://travis-ci.org/ahungrynoob/ahungrynoob
+[codecov-image]: https://img.shields.io/codecov/c/github/ahungrynoob/ahungrynoob.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/ahungrynoob/ahungrynoob
 
 ## 关于 ahunrynoob 的由来
 
