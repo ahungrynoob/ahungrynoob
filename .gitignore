@@ -27,3 +27,4 @@ track
 .vscode/
 !.run/isomorphic
 coverage/
+.stats
