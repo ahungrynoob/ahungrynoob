@@ -1,7 +1,7 @@
 # Ahungrynoob
 
 <div align=center>
-	<img src="./logo.png" />
+	<img src="https://github.com/ahungrynoob/ahungrynoob/blob/master/logo.png?raw=true" />
 </div>
 
 个人博客，不限于技术、生活等等
