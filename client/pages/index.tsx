@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { ViewProps } from 'beidou';
-import App from './app';
+import App from '../home/app';
 
 export default class View extends React.Component<ViewProps> {
   static getPartial() {
@@ -15,7 +15,12 @@ export default class View extends React.Component<ViewProps> {
     return (
       <html>
         <head>
-          <title>TypeScript</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <title>Ahungrynoob</title>
+          <link rel="stylesheet" href={helper.asset('manifest.css')} />
           <link rel="stylesheet" href={helper.asset('index.css')} />
         </head>
         <body>

@@ -15,7 +15,8 @@
     "object-curly-spacing": "always",
     "no-this-assignment": false,
     "no-object-literal-type-assertion": false,
-    "prefer-conditional-expression": false
+    "prefer-conditional-expression": false,
+    "no-unused-expression": false
   },
   "linterOptions": {
     "exclude": ["node_modules/**", "**/*.d.ts"]
