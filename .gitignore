@@ -34,3 +34,4 @@ config/private.config.ts
 config/ahungrynoob.pem
 config/ahungrynoob.key
 scripts
+.manifest.json
