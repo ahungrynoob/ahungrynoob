@@ -28,3 +28,9 @@ track
 !.run/isomorphic
 coverage/
 .stats
+
+# private config
+config/private.config.ts
+config/ahungrynoob.pem
+config/ahungrynoob.key
+scripts
