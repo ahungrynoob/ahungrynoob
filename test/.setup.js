@@ -3,7 +3,7 @@ import path from 'path';
 
 before(() => {
 
-  const privateConfigPath = path.join(__dirname,'../config/a.config.ts');
+  const privateConfigPath = path.join(__dirname,'../config/private.config.ts');
   const mockConfigPath = path.join(__dirname,'mock/private.config.ts');
 
   if( !fs.existsSync(privateConfigPath) ){
