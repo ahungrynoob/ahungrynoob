@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "My personal blog",
   "scripts": {
-    "start": "beidou start --port=443 --title=egg-server-ahungrynoob --https --key='./config/ahungrynoob.key' --cert='./config/ahungrynoob.pem'",
+    "start": "beidou start --port=443 --title=egg-server-ahungrynoob --https.key='./config/ahungrynoob.key' --https.cert='./config/ahungrynoob.pem' --https.ca='./config/ahungrynoob.ca'",
     "debug": "beidou debug --inspect-brk",
     "stop": "beidou stop --title=egg-server-ahungrynoob",
     "dev": "beidou dev",

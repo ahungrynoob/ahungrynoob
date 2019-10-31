@@ -33,5 +33,6 @@ coverage/
 config/private.config.ts
 config/ahungrynoob.pem
 config/ahungrynoob.key
+config/ahungrynoob.ca
 scripts
 .manifest.json
