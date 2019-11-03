@@ -25,7 +25,7 @@ const Content: React.FunctionComponent<any> = (props) => {
         <div>
           <div className={cx('wrapper')}>
             <Avatar
-              wrapperClassName={cx('avatarWrapper')}
+              wrapperClassName={styles.avatarWrapper}
               className={cx('avatar')}
               {...{
                 blurSrc: `${config.user.avatar}?s=40&v=4`,
