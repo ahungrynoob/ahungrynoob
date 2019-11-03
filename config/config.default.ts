@@ -18,7 +18,7 @@ export default (appInfo: EggAppInfo) => {
 
   config.view = {
     useHashAsset: true,
-    defaultExtension: '.tsx',
+    root: `${appInfo.baseDir}/client/pages`,
   } as any; // todo: will remove after beidou update
 
   config.router = {

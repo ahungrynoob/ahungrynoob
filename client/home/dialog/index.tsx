@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import Avatar from '../background';
 import styles from './index.m.less';
@@ -35,9 +36,9 @@ const Dialog: React.FunctionComponent<IDialogProps> = ({
       <nav>
         {menu.map(({ name, href }) => {
           return (
-            <a key={name} href={href}>
+            <Link key={name} to={href}>
               {name}
-            </a>
+            </Link>
           );
         })}
       </nav>

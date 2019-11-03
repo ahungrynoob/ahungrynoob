@@ -4,14 +4,14 @@ import { ViewProps } from 'beidou';
 import App from '../home/app';
 
 export default class View extends React.Component<ViewProps> {
-  static getPartial() {
+  static getPartial({ initialState }) {
     return {
-      html: <App />,
+      html: <App {...initialState} />,
     };
   }
 
   render() {
-    const { html, helper } = this.props;
+    const { helper, initialState, html } = this.props;
     return (
       <html>
         <head>
@@ -22,14 +22,16 @@ export default class View extends React.Component<ViewProps> {
           <title>Ahungrynoob</title>
           <link rel="stylesheet" href={helper.asset('manifest.css')} />
           <link rel="stylesheet" href={helper.asset('index.css')} />
-        </head>
-        <body>
-          <div
-            id="container"
+          <script
             dangerouslySetInnerHTML={{
-              __html: html,
+              __html: `window.__INITIAL_STATE__ = ${JSON.stringify(
+                initialState,
+              )}`,
             }}
           />
+        </head>
+        <body>
+          <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
         </body>
@@ -39,5 +41,9 @@ export default class View extends React.Component<ViewProps> {
 }
 
 if (__CLIENT__) {
-  ReactDOM.hydrate(<App />, document.getElementById('container'));
+  const initialState = window.__INITIAL_STATE__;
+  ReactDOM.hydrate(
+    <App {...initialState} />,
+    document.getElementById('container'),
+  );
 }
