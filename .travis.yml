@@ -9,6 +9,7 @@ before_install:
 install:
   - npminstall
 script:
+  - node test/setup.js
   - npm run build
   - npm run ci
 after_script:
