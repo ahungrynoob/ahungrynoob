@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, StaticRouter, Switch, Route } from 'react-router-dom';
 import NotFound from './notfound';
-import Placeholder from './placeholder';
+import Content from './content';
 import Home from './home';
 import 'normalize.css';
-import './style.less';
+import '../styles/global.less';
 
 const Router: any = __CLIENT__ ? BrowserRouter : StaticRouter;
 
@@ -28,7 +28,7 @@ const App: React.FunctionComponent<IAppProps> = (props) => {
         <Route
           path={[ '/work', '/thought', '/life' ]}
           extact
-          component={Placeholder}
+          component={Content}
         />
         <Route component={NotFound} />
       </Switch>

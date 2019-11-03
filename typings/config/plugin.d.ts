@@ -4,7 +4,6 @@
 import 'beidou';
 import 'egg-onerror';
 import 'egg-session';
-import 'egg-i18n';
 import 'egg-watcher';
 import 'egg-multipart';
 import 'egg-security';
@@ -14,6 +13,11 @@ import 'egg-schedule';
 import 'egg-static';
 import 'egg-jsonp';
 import 'egg-view';
+import 'beidou-view';
+import 'beidou-view-react';
+import 'beidou-webpack';
+import 'beidou-isomorphic';
+import 'beidou-router';
 import { EggPluginItem } from 'beidou';
 declare module 'beidou' {
   interface EggPlugin {
@@ -29,5 +33,10 @@ declare module 'beidou' {
     static?: EggPluginItem;
     jsonp?: EggPluginItem;
     view?: EggPluginItem;
+    beidouView?: EggPluginItem;
+    react?: EggPluginItem;
+    webpack?: EggPluginItem;
+    isomorphic?: EggPluginItem;
+    router?: EggPluginItem;
   }
 }

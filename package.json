@@ -12,8 +12,8 @@
     "pack": "tar -zcvf ../release.tgz .",
     "build": "rimraf build/ && tsc && beidou build",
     "build:node": "tsc && beidou build --target=node",
-    "test": "beidou test --ts --require test/setup.js",
-    "ci": "beidou cov --ts --require test/setup.js"
+    "test": "beidou test --ts",
+    "ci": "beidou cov --ts"
   },
   "husky": {
     "hooks": {
