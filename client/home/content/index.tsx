@@ -23,10 +23,10 @@ const Content: React.FunctionComponent<any> = (props) => {
     <Fragment>
       <div className={panelCls}>
         <div>
-          <div className={styles.wrapper}>
+          <div className={cx('wrapper')}>
             <Avatar
-              wrapperClassName={styles.avatarWrapper}
-              className={styles.avatar}
+              wrapperClassName={cx('avatarWrapper')}
+              className={cx('avatar')}
               {...{
                 blurSrc: `${config.user.avatar}?s=40&v=4`,
                 src: `${config.user.avatar}?s=460&v=4`,
@@ -35,7 +35,7 @@ const Content: React.FunctionComponent<any> = (props) => {
           </div>
           <h1>{config.user.name}</h1>
           <p>{config.user.description}</p>
-          <div className={styles.contact}>
+          <div className={cx('contact')}>
             {config.user.contact.map(({ icon, href }) => {
               return (
                 <a key={href} href={href}>
