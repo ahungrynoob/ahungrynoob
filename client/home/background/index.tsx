@@ -26,17 +26,35 @@ export default class Background extends React.Component<IProps, IState> {
   img: HTMLImageElement;
 
   componentDidMount() {
-    const { src } = this.props;
+    const { src, blurSrc } = this.props;
+    if (!src || !blurSrc) {
+      return;
+    }
+    this.addImageListener(src);
+  }
+
+  UNSAFE_componentWillReceiveProps({ blurSrc, src }: IProps) {
+    if (blurSrc && src && src !== this.props.src) {
+      this.addImageListener(src);
+    }
+  }
+
+  componentWillUnmount() {
+    this.clearImageListener();
+  }
+
+  clearImageListener = () => {
+    this.img && this.img.removeEventListener('load', this.setLoaded);
+    this.img && this.img.removeEventListener('error', this.setError);
+    this.img = null;
+  }
+
+  addImageListener = (src: string) => {
+    this.clearImageListener();
     this.img = new Image();
     this.img.addEventListener('load', this.setLoaded);
     this.img.addEventListener('error', this.setError);
     this.img.src = src;
-  }
-
-  componentWillUnmount() {
-    this.img && this.img.removeEventListener('load', this.setLoaded);
-    this.img && this.img.removeEventListener('error', this.setError);
-    this.img = null;
   }
 
   setLoaded = () => {
@@ -70,7 +88,9 @@ export default class Background extends React.Component<IProps, IState> {
           className={clsName}
           style={{
             ...style,
-            backgroundImage: `url(${backgroundImage})`,
+            backgroundImage: backgroundImage
+              ? `url(${backgroundImage})`
+              : undefined,
           }}
         />
         {this.props.children}

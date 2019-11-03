@@ -13,6 +13,11 @@ declare module "*.jpg" {
   export = value;
 }
 
+declare module "*.jpeg" {
+  const value: any;
+  export = value;
+}
+
 declare module "*.ico" {
   const value: any;
   export = value;
@@ -21,4 +26,8 @@ declare module "*.ico" {
 declare module "*.jpg" {
   const value: any;
   export = value;
+}
+
+interface Window {
+  __INITIAL_STATE__: any;
 }
