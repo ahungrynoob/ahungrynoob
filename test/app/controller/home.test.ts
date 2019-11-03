@@ -9,7 +9,7 @@ describe('test/controller/home/test.ts', () => {
         .get('/work')
         .expect(200)
         .expect((res) => {
-          assert(res.text.indexOf('work') > -1);
+          assert(res.text.indexOf('ahungrynoob') > -1);
         });
     });
 

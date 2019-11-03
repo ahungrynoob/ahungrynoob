@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import Icon from '../components/icon';
 import Avatar from '../background';
 import styles from './index.m.less';
 
@@ -11,7 +12,7 @@ interface IDialogProps {
   title?: string;
   description?: string;
   menu?: Array<{ name: string; href: string }>;
-  contact?: Array<{ icon: ReactElement; href: string }>;
+  contact?: Array<{ icon: string; href: string }>;
 }
 
 const Dialog: React.FunctionComponent<IDialogProps> = ({
@@ -46,7 +47,7 @@ const Dialog: React.FunctionComponent<IDialogProps> = ({
         {contact.map(({ icon, href }) => {
           return (
             <a key={href} href={href}>
-              {icon}
+              <Icon name={icon} />
             </a>
           );
         })}
