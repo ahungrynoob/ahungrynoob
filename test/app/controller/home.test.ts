@@ -6,6 +6,16 @@ describe('test/controller/home/test.ts', () => {
     it('should status 200 and get right content', () => {
       return app
         .httpRequest()
+        .get('/')
+        .expect(200)
+        .expect((res) => {
+          assert(res.text.indexOf('ahungrynoob') > -1);
+        });
+    });
+
+    it('should status 200 and get right content', () => {
+      return app
+        .httpRequest()
         .get('/work')
         .expect(200)
         .expect((res) => {
