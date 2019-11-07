@@ -1,14 +1,21 @@
 import React, { Fragment, useState } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames/bind';
+import { NavLink, Switch, Route, useLocation } from 'react-router-dom';
+import { ShrinkContext } from '../context';
+import List from '../list';
+import Article from '../article';
 import Icon from '../components/icon';
 import Avatar from '../background';
 import styles from './index.m.less';
+import transitionStyles from './transition.m.less';
 import config from '../../config';
 
 const cx = classNames.bind(styles);
 
 const Content: React.FunctionComponent<any> = (props) => {
   const [ shrink, setShrink ] = useState(false);
+  const location = useLocation();
   function toggleShrink() {
     setShrink(!shrink);
   }
@@ -21,35 +28,67 @@ const Content: React.FunctionComponent<any> = (props) => {
   );
   return (
     <Fragment>
-      <div className={panelCls}>
-        <div>
-          <div className={cx('wrapper')}>
-            <Avatar
-              wrapperClassName={styles.avatarWrapper}
-              className={cx('avatar')}
-              {...{
-                blurSrc: `${config.user.avatar}?s=40&v=4`,
-                src: `${config.user.avatar}?s=460&v=4`,
-              }}
-            />
+      <ShrinkContext.Provider value={shrink}>
+        <div className={panelCls}>
+          <div>
+            <div className={cx('wrapper')}>
+              <Avatar
+                wrapperClassName={styles.avatarWrapper}
+                className={cx('avatar')}
+                {...{
+                  blurSrc: `${config.user.avatar}?s=40&v=4`,
+                  src: `${config.user.avatar}?s=460&v=4`,
+                }}
+              />
+            </div>
+            <h1>{config.user.name}</h1>
+            <p>{config.user.description}</p>
+            <div className={cx('contact')}>
+              {config.user.contact.map(({ icon, href }) => {
+                return (
+                  <a key={href} href={href}>
+                    <Icon name={icon} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
-          <h1>{config.user.name}</h1>
-          <p>{config.user.description}</p>
-          <div className={cx('contact')}>
-            {config.user.contact.map(({ icon, href }) => {
-              return (
-                <a key={href} href={href}>
-                  <Icon name={icon} />
-                </a>
-              );
-            })}
+          <div onClick={toggleShrink} className={cx('toggle')}>
+            <Icon name={shrink ? 'angle-right' : 'angle-left'} />
           </div>
         </div>
-        <div onClick={toggleShrink} className={cx('toggle')}>
-          <Icon name={shrink ? 'angle-right' : 'angle-left'} />
+        <div className={cx('main')}>
+          <nav>
+            {config.menu.map(({ name, href }) => (
+              <NavLink key={name} to={href}>
+                {name}
+              </NavLink>
+            ))}
+          </nav>
+          <div>
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={500}
+                classNames={{ ...transitionStyles }}
+              >
+                <Switch location={location}>
+                  <Route
+                    path={[ '/work', '/thought', '/life' ]}
+                    extact
+                    component={List}
+                  />
+                  <Route
+                    path={[ '/work/:id', '/thought/:id', '/life/:id' ]}
+                    extact
+                    component={Article}
+                  />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
         </div>
-      </div>
-      <div className={cx('main')}>this is main</div>
+      </ShrinkContext.Provider>
     </Fragment>
   );
 };
