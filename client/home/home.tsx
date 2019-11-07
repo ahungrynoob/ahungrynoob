@@ -18,7 +18,7 @@ const bgs = [
   { src: bg3, blurSrc: bg3Blur },
 ];
 
-interface IHomeProps {
+export interface IHomeProps {
   bgIndex: number;
 }
 

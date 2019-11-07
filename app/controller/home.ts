@@ -1,4 +1,5 @@
 import { Controller } from 'beidou';
+import mockData from '../../test/mock/issues';
 
 export default class HomeController extends Controller {
   public async index() {
@@ -11,6 +12,7 @@ export default class HomeController extends Controller {
       context,
       location,
       bgIndex,
+      list: mockData,
     };
     const html = await ctx.renderView(renderPath, {
       initialState,

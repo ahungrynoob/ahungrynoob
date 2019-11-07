@@ -1,19 +1,8 @@
 @import "../../styles/variable.less";
 
-@media screen and (min-width: @screen-md-min) {
-  .panel {
-    display: flex;
-  }
-}
-
-@media screen and (max-width: @screen-md-max) {
-  .panel {
-    display: none;
-  }
-}
-
 .panel {
   float: left;
+  display: flex;
   position: relative;
   height: 100%;
   margin-left: 0;
@@ -87,6 +76,32 @@
 .main {
   // bfc
   overflow: auto;
-  min-height: 100vh;
+  height: 100%;
   background-color: #fff;
+  padding: 0 1rem;
+
+  nav {
+    text-align: left;
+    padding: 2rem 1rem 1rem;
+    border-bottom: 1px solid @border-color;
+    margin-bottom: 1rem;
+    a {
+      color: currentColor;
+      text-decoration: none;
+      margin-right: 1rem;
+      font-weight: bold;
+      &:global(.active) {
+        color: @active-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-md-max) {
+  .panel {
+    display: none;
+  }
+  .main nav {
+    text-align: center;
+  }
 }
