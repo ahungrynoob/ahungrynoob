@@ -13,7 +13,7 @@
     "build": "rimraf build/ && tsc && beidou build",
     "build:node": "tsc && beidou build --target=node",
     "test": "beidou test --ts",
-    "ci": "beidou cov --ts"
+    "ci": "beidou cov --ts -x=\"client\""
   },
   "husky": {
     "hooks": {
