@@ -3,14 +3,18 @@ import fs from 'fs';
 import { EggAppConfig, PowerPartial, EggAppInfo } from 'beidou';
 import privateConfig from './private.config';
 // 应用本身的配置 Scheme
-export interface IStaticConfig {
+interface IBlogConfig {
   static: {
     dir: Array<{ prefix: string; dir: string }>;
+  };
+  github: {
+    name: string;
+    repo: string;
   };
 }
 
 export default (appInfo: EggAppInfo) => {
-  const config: PowerPartial<EggAppConfig & IStaticConfig> = {};
+  const config: PowerPartial<EggAppConfig & IBlogConfig> = {};
 
   config.siteFile = {
     '/favicon.ico': fs.readFileSync(path.join(__dirname, 'favicon.ico')),

@@ -37,7 +37,7 @@ class List extends React.Component<
     } = this.props;
     return (
       <ul className={styles.list}>
-        {data.map(({ id, title, updated_at }, index) => {
+        {data.map(({ id, title, updated_at }) => {
           return (
             <li key={id}>
               <Link to={`${path}/${id}`}>{title}</Link>

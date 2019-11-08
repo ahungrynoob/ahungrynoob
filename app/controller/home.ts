@@ -1,5 +1,4 @@
 import { Controller } from 'beidou';
-import mockData from '../../test/mock/issues';
 
 export default class HomeController extends Controller {
   public async index() {
@@ -8,11 +7,16 @@ export default class HomeController extends Controller {
     const context: { statusCode?: number; url?: string } = {};
     const location = ctx.url;
     const bgIndex = Math.round(Math.random() * 3);
+    const pathname = ctx.path.substring(1);
+    const list = ctx.service.issue.list(pathname as
+      | 'work'
+      | 'life'
+      | 'thought');
     const initialState = {
       context,
       location,
       bgIndex,
-      list: mockData,
+      list,
     };
     const html = await ctx.renderView(renderPath, {
       initialState,

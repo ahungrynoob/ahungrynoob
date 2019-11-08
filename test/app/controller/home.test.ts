@@ -1,8 +1,31 @@
-import { app } from 'egg-mock/bootstrap';
+import mm from 'egg-mock';
+import urllib from 'urllib';
+import mock from '../../mock/issues';
 import assert = require('assert');
 
 describe('test/controller/home/test.ts', () => {
   describe('GET /', () => {
+    let app;
+    beforeEach(async () => {
+      mm(urllib, 'request', (_: string) => {
+        return {
+          data: mock,
+        };
+      });
+
+      app = mm.app({
+        cache: false,
+      });
+      await app.ready();
+      app.mockService('issue', 'list', (_: any) => {
+        return mock;
+      });
+    });
+
+    afterEach(() => {
+      mm.restore();
+    });
+
     it('should status 200 and get right content', () => {
       return app
         .httpRequest()
