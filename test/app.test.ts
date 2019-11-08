@@ -31,6 +31,11 @@ describe('test/app.ts', () => {
       const list = app.issueClient.get('work', 888888);
       assert(list[0].title === 'Test: Test a issue 888888');
     });
+
+    it('should get empty list', () => {
+      const list = app.issueClient.get('/');
+      assert.deepEqual(list, []);
+    });
   });
 
   describe('app#issueClient#null)', () => {

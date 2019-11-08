@@ -44,7 +44,7 @@ class IssueClient extends Base {
       });
       return issue;
     }
-    return this[CACHE][key];
+    return this[CACHE][key] || [];
   }
 }
 
