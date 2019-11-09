@@ -6,10 +6,10 @@ import {
   Route,
   RouteComponentProps,
 } from 'react-router-dom';
+import useRootReducer from 'use-root-reducer';
 import NotFound from './notfound';
 import Content from './content';
 import Home, { IHomeProps } from './home';
-import { useRootReducer } from '../utils/index';
 import { listReducer } from './redux/reducer';
 import { StateContext, DispatchContext } from './context';
 import { ArticleList } from '../config/types';
