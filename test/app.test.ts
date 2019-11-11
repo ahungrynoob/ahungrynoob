@@ -28,7 +28,7 @@ describe('test/app.ts', () => {
     });
 
     it('should get right title when match id', () => {
-      const list = app.issueClient.get('work', 888888);
+      const list = app.issueClient.get(888888);
       assert(list[0].title === 'Test: Test a issue 888888');
     });
 

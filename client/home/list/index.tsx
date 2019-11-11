@@ -32,9 +32,9 @@ class List extends React.Component<
 
   public render() {
     const {
-      data,
       match: { path },
     } = this.props;
+    const { data } = this.state;
     return (
       <ul className={styles.list}>
         {data.map(({ id, title, updated_at }) => {

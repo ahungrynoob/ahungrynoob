@@ -8,10 +8,9 @@ before_install:
   - npm i npminstall -g
 install:
   - npminstall
-  - npminstall codecov
 script:
   - node test/setup.js
   - npm run build
   - npm run ci
 after_script:
-  - codecov
+  - npminstall codecov && codecov

@@ -1,26 +1,14 @@
-import { Application } from 'egg';
 import urllib from 'urllib';
 import Base from 'sdk-base';
-
-export interface IIssue {
-  id: number;
-  title: string;
-  labels?: Array<{ name: 'Work' | 'Life' | 'Thought' }>;
-  updated_at: string;
-  body?: string;
-}
-
-export type Options = {
-  cluster: (arg: any) => any;
-} & Application['config']['github'];
+import { IssueRegistryClientOptions, IIssue } from 'typings';
 
 const OPTIONS = Symbol('IssueRegistryClient#options');
 
 class IssueRegistryClient extends Base {
-  [OPTIONS]: Options;
+  [OPTIONS]: IssueRegistryClientOptions;
   issues: IIssue[] = [];
 
-  constructor(options: Options) {
+  constructor(options: IssueRegistryClientOptions) {
     super({
       initMethod: 'init',
     });

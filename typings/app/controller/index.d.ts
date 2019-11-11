@@ -2,10 +2,12 @@
 // Do not modify this file!!!!!!!!!
 
 import 'beidou';
+import ExportArticles from '../../../app/controller/articles';
 import ExportHome from '../../../app/controller/home';
 
 declare module 'beidou' {
   interface IController {
+    articles: ExportArticles;
     home: ExportHome;
   }
 }

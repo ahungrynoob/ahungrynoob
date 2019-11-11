@@ -3,7 +3,7 @@ import urllib from 'urllib';
 import mock from '../../mock/issues';
 import assert = require('assert');
 
-describe('test/controller/home/test.ts', () => {
+describe('test/controller/home.test.ts', () => {
   describe('GET /', () => {
     let app;
     beforeEach(async () => {
