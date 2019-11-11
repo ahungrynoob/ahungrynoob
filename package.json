@@ -37,6 +37,7 @@
     "react-transition-group": "^2.9.0",
     "typesafe-actions": "^5.1.0",
     "typescript": "^3.6.4",
+    "unfetch": "^4.1.0",
     "use-root-reducer": "^1.0.0"
   },
   "devDependencies": {
