@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   StaticRouter,
@@ -6,12 +6,10 @@ import {
   Route,
   RouteComponentProps,
 } from 'react-router-dom';
-import useRootReducer from 'use-root-reducer';
 import NotFound from './notfound';
 import Content from './content';
 import Home, { IHomeProps } from './home';
-import { listReducer } from './redux/reducer';
-import { StateContext, DispatchContext } from './context';
+import { RootReducerProvider } from './context';
 import { ArticleList } from '../config/types';
 import 'normalize.css';
 import '../styles/global.less';
@@ -29,29 +27,23 @@ interface IAppProps {
 
 const App: React.FunctionComponent<IAppProps & IHomeProps> = (props) => {
   const { location: staticLocation, context, bgIndex, list } = props;
-
-  const [ state, dispatch ] = useRootReducer({
-    list: useReducer(listReducer, list || []),
-  });
   return (
     <Router location={staticLocation} context={context}>
-      <DispatchContext.Provider value={dispatch}>
-        <StateContext.Provider value={state}>
-          <Switch>
-            <Route path="/" exact>
-              <Home bgIndex={bgIndex} />
-            </Route>
-            <Route
-              path={[ '/work', '/thought', '/life' ]}
-              extact
-              component={(routeProps: RouteComponentProps) => (
-                <Content {...routeProps} />
-              )}
-            />
-            <Route component={NotFound} />
-          </Switch>
-        </StateContext.Provider>
-      </DispatchContext.Provider>
+      <RootReducerProvider list={list}>
+        <Switch>
+          <Route path="/" exact>
+            <Home bgIndex={bgIndex} />
+          </Route>
+          <Route
+            path={[ '/work', '/thought', '/life' ]}
+            extact
+            component={(routeProps: RouteComponentProps) => (
+              <Content {...routeProps} />
+            )}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </RootReducerProvider>
     </Router>
   );
 };

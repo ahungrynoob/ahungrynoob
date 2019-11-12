@@ -1,46 +1,53 @@
-import React, { useContext } from 'react';
+import React, { useContext, Dispatch } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import { StateContext } from '../context/index';
+import { PayloadAction } from 'typesafe-actions';
+import { StateContext, DispatchContext } from '../context/index';
+import { listUpdate } from '../redux/action';
 import { getDateString } from '../../utils/index';
-import { ArticleList } from '../../config/types';
+import { fetchArticles } from '../../utils/fetcher';
+import { ArticleList, IItem } from '../../config/types';
 import styles from './index.m.less';
+import { Category } from 'typings';
 
-interface IListProps {
+type ListProps = {
   data?: ArticleList;
-}
+  dispatch: Dispatch<PayloadAction<'list/UPDATE', IItem[]>>;
+} & RouteComponentProps;
 
-class List extends React.Component<
-  IListProps & RouteComponentProps,
-  IListProps
-> {
-  readonly state = {
-    data: this.props.data,
-    showList: false,
-  };
-
-  getMenu = () => {
-    return this.props.match.path.substring(1);
+class List extends React.Component<ListProps> {
+  getCategory(path: string) {
+    return path.substring(1) as Category;
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    // 切换tab的时候，判断下pathname是否一致，如果不一致就去拉数据
+  fetchData = (category: Category) => {
+    fetchArticles(category)
+      .then((response) => {
+        this.props.dispatch(listUpdate(response.data));
+      })
+      .catch((e) => alert(e));
   }
+
+  // UNSAFE_componentWillReceiveProps(nextProps: ListProps) {
+  //   if (nextProps.match.path !== this.props.match.path) {
+  //     //  切换tab
+  //     const categroy = this.getCategory(nextProps.match.path);
+  //     this.fetchData(categroy);
+  //   }
+  // }
 
   componentDidMount() {
-    // 如果没有数据就去拉数据，有数据的话是服务端渲染就直接渲染
+    const categroy = this.getCategory(this.props.match.path);
+    this.fetchData(categroy);
   }
 
-  public render() {
-    const {
-      match: { path },
-    } = this.props;
-    const { data } = this.state;
+  render() {
+    const { match, data } = this.props;
     return (
       <ul className={styles.list}>
         {data.map(({ id, title, updated_at }) => {
           return (
             <li key={id}>
-              <Link to={`${path}/${id}`}>{title}</Link>
+              <Link to={`${match.path}/${id}`}>{title}</Link>
               <span>{getDateString(updated_at)}</span>
             </li>
           );
@@ -52,5 +59,6 @@ class List extends React.Component<
 
 export default function(props: RouteComponentProps) {
   const { list } = useContext(StateContext);
-  return <List {...props} data={list} />;
+  const dispatch = useContext(DispatchContext);
+  return <List {...props} data={list} dispatch={dispatch} />;
 }
