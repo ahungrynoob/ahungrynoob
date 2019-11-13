@@ -14,13 +14,11 @@ interface IProps {
 
 interface IState {
   loaded: boolean;
-  error: boolean;
 }
 
 export default class Background extends React.Component<IProps, IState> {
   readonly state = {
     loaded: false,
-    error: false,
   };
 
   img: HTMLImageElement;
@@ -33,41 +31,38 @@ export default class Background extends React.Component<IProps, IState> {
     this.addImageListener(src);
   }
 
-  UNSAFE_componentWillReceiveProps({ blurSrc, src }: IProps) {
-    if (blurSrc && src && src !== this.props.src) {
-      this.addImageListener(src);
-    }
-  }
-
   componentWillUnmount() {
     this.clearImageListener();
   }
 
   clearImageListener = () => {
     this.img && this.img.removeEventListener('load', this.setLoaded);
-    this.img && this.img.removeEventListener('error', this.setError);
+    this.img && this.img.removeEventListener('error', this.logError);
     this.img = null;
-  }
+  };
 
   addImageListener = (src: string) => {
     this.clearImageListener();
     this.img = new Image();
     this.img.addEventListener('load', this.setLoaded);
-    this.img.addEventListener('error', this.setError);
+    this.img.addEventListener('error', this.logError);
     this.img.src = src;
-  }
+  };
 
   setLoaded = () => {
     this.setState({
       loaded: true,
     });
-  }
+  };
 
-  setError = (e) => {
+  logError = e => {
     console.error(e);
-    this.setState({
-      error: true,
-    });
+  };
+
+  UNSAFE_componentWillReceiveProps({ blurSrc, src }: IProps) {
+    if (blurSrc && src && src !== this.props.src) {
+      this.addImageListener(src);
+    }
   }
 
   public render() {
@@ -82,15 +77,14 @@ export default class Background extends React.Component<IProps, IState> {
     );
     const wrapperClsName = cx('bgWrapper', wrapperClassName);
     const backgroundImage = loaded ? src : blurSrc;
+    const backgroundImageStyle = backgroundImage ? `url(${backgroundImage})` : undefined;
     return (
       <div className={wrapperClsName}>
         <div
           className={clsName}
           style={{
             ...style,
-            backgroundImage: backgroundImage
-              ? `url(${backgroundImage})`
-              : undefined,
+            backgroundImage: backgroundImageStyle,
           }}
         />
         {this.props.children}

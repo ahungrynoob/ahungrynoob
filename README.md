@@ -6,8 +6,7 @@
 
 个人博客，不限于技术、生活等等
 
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
+[![build status][travis-image]][travis-url] [![Test coverage][codecov-image]][codecov-url]
 
 [travis-image]: https://img.shields.io/travis/ahungrynoob/ahungrynoob.svg?style=flat-square
 [travis-url]: https://travis-ci.org/ahungrynoob/ahungrynoob

@@ -8,7 +8,14 @@
     "stop": "beidou stop --title=egg-server-ahungrynoob",
     "dev": "beidou dev",
     "check": "tsc",
-    "lint": "tsc && tslint -c tslint.json --fix '**/*.{ts,tsx}' ",
+    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint",
+    "lint:fix": "eslint --fix --cache --format=pretty **/*.{ts,tsx} && npm run lint:style",
+    "lint:js": "eslint --cache --format=pretty **/*.{ts,tsx}",
+    "lint:prettier": "check-prettier lint",
+    "lint:style": "stylelint --fix \"**/*.less\" --syntax less",
+    "prettier": "prettier -c --write \"**/*.{ts,tsx}\"",
     "pack": "tar -zcvf ../release.tgz .",
     "build": "rimraf build/ && tsc && beidou build",
     "build:node": "tsc && beidou build --target=node",
@@ -21,40 +28,54 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run lint",
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{tsx,ts,less,md,json}": [
+      "prettier --write",
       "git add"
-    ]
+    ],
+    "**/*.{ts,tsx}": "npm run lint-staged:js"
   },
   "dependencies": {
     "beidou": "^2.2.1",
     "beidou-cli": "^2.1.1",
     "classnames": "^2.2.6",
+    "github-markdown-css": "^3.0.1",
+    "highlight.js": "^9.16.2",
+    "install": "^0.13.0",
     "normalize.css": "^8.0.1",
+    "npm": "^6.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-transition-group": "^2.2.1",
+    "sdk-base": "^3.6.0",
+    "showdown": "^1.9.1",
     "typesafe-actions": "^5.1.0",
     "typescript": "^3.6.4",
     "unfetch": "^4.1.0",
+    "urllib": "^2.34.1",
     "use-root-reducer": "^1.0.0"
   },
   "devDependencies": {
+    "@types/highlight.js": "^9.12.3",
     "@types/mocha": "^5.2.7",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/react-router-dom": "^5.1.1",
     "@types/react-transition-group": "^2.2.1",
+    "@types/showdown": "^1.9.3",
     "@types/webpack": "^4.4.20",
+    "@umijs/fabric": "^1.2.1",
+    "check-prettier": "^1.0.3",
     "egg-ci": "^1.13.0",
     "egg-mock": "^3.24.1",
+    "eslint": "^6.6.0",
     "husky": "^3.0.9",
     "lint-staged": "^7.3.0",
+    "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
-    "tslint": "^5.20.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^4.1.0"
+    "stylelint": "^11.1.1"
   },
   "browserslist": [
     ">1%",

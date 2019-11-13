@@ -7,7 +7,7 @@ import styles from './index.m.less';
 
 const cx = classNames.bind(styles);
 
-const NotFound: React.FunctionComponent<RouteComponentProps> = (props) => {
+const NotFound: React.FunctionComponent<RouteComponentProps> = props => {
   const history = useHistory();
 
   function handleClick() {

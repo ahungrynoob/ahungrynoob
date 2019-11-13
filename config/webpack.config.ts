@@ -1,10 +1,8 @@
-'use strict';
-
 import { EggAppInfo } from 'beidou';
 import { Configuration } from 'webpack';
 
 export default (_: EggAppInfo, defaultConfig: Configuration): Configuration => {
-  const tsLoader =  {
+  const tsLoader = {
     test: /\.tsx?$/,
     exclude: /node_modules/,
     use: [

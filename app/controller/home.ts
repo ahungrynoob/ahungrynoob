@@ -7,16 +7,18 @@ export default class HomeController extends Controller {
     const context: { statusCode?: number; url?: string } = {};
     const location = ctx.url;
     const bgIndex = Math.round(Math.random() * 3);
-    const pathname = ctx.path.substring(1);
-    const list = ctx.service.issue.list(pathname as
-      | 'work'
-      | 'life'
-      | 'thought');
+    const { 0: category, 1: id } = ctx.params;
+
+    const list = ctx.service.issue.list((category + id) as 'work' | 'life' | 'thought');
+
+    const article = ctx.service.issue.article(Number(id));
+
     const initialState = {
       context,
       location,
       bgIndex,
       list,
+      article,
     };
     const html = await ctx.renderView(renderPath, {
       initialState,

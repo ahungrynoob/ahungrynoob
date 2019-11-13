@@ -1,11 +1,11 @@
 import fetch from 'unfetch';
-import { getCookie } from './index';
 import { Category } from 'typings';
+import { getCookie } from './index';
 
 function getQueryString(body: object) {
   let str = '?';
-  Object.keys(body).forEach((val) => {
-    str += val + '=' + encodeURIComponent(body[val] + '') + '&';
+  Object.keys(body).forEach(val => {
+    str += `${val}=${encodeURIComponent(`${body[val]}`)}&`;
   });
   str = str.slice(0, -1);
   return str;
@@ -24,18 +24,17 @@ function fetchWrapper(url: string, method: string = 'GET', body?: object) {
     },
     method,
     body: method !== 'GET' && body && JSON.stringify(body),
-  }).then((response) => {
+  }).then(response => {
     if (response.ok) {
       return response.json();
-    } else {
-      const error = new Error(response.statusText);
-      return Promise.reject(error);
     }
+    throw new Error(response.statusText);
   });
 }
 
-export const fetchArticles = (category: Category) => {
-  return fetchWrapper('/api/articles', 'GET', { category });
-};
+export const fetchArticles = (category: Category) =>
+  fetchWrapper('/api/articles', 'GET', { category });
+
+export const fetchArticle = (id: number) => fetchWrapper(`/api/articles/${id}`);
 
 export default fetchWrapper;

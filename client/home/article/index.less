@@ -1,0 +1,17 @@
+@import '../../styles/variable.less';
+
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  pre {
+    background: rgba(39, 40, 34, 1);
+  }
+}
+
+@media screen and (max-width: @screen-md-max) {
+  .markdown-body {
+    padding: 0;
+  }
+}

@@ -1,12 +1,12 @@
 import { Controller } from 'beidou';
-import errors from '../../config/errors';
 import { Category } from 'typings';
+import errors from '../../config/errors';
 
 export default class ArticlesController extends Controller {
-  async index() {
+  public async index() {
     const { ctx } = this;
     const { category } = ctx.request.query;
-    const categories = [ 'work', 'thought', 'life' ];
+    const categories = ['work', 'thought', 'life'];
     if (categories.indexOf(category) === -1) {
       ctx.status = 400;
       ctx.body = {
@@ -22,7 +22,7 @@ export default class ArticlesController extends Controller {
     };
   }
 
-  async show() {
+  public async show() {
     const { ctx } = this;
     const { id } = ctx.params;
     const data = ctx.service.issue.article(Number(id));
