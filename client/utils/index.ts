@@ -2,7 +2,7 @@ function doubleDigit(num: number) {
   if (num >= 10) {
     return num;
   }
-  return '0' + num;
+  return `0${num}`;
 }
 
 export function getDateString(time: string) {
@@ -18,7 +18,7 @@ export function getDateString(time: string) {
 
 export function getCookie(cName: string): string {
   if (document.cookie.length > 0) {
-    let cStart = document.cookie.indexOf(cName + '=');
+    let cStart = document.cookie.indexOf(`${cName}=`);
     if (cStart !== -1) {
       cStart = cStart + cName.length + 1;
       let cEnd = document.cookie.indexOf(';', cStart);

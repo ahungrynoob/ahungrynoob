@@ -1,33 +1,33 @@
 .bg {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
   bottom: 0;
-  opacity: 1;
-  transition: filter 0.5s ease-in;
-  background-size: cover;
-  background-position: center center;
+  left: 0;
   background-color: #fff;
-  filter: blur(0px);
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  filter: blur(0);
+  transition: filter 0.5s ease-in;
   &.blur {
     filter: blur(16px);
-    &:before {
-      content: "";
+    &::before {
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
+      left: 0;
       opacity: 0.32;
+      content: '';
     }
   }
 }
 
 .bgWrapper {
   position: relative;
-  min-height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }

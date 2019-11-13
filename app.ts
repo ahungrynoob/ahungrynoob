@@ -2,7 +2,6 @@ import { Application, IBoot } from 'egg';
 import IssueClient from './app/lib/issueClient';
 
 declare module 'egg' {
-  // tslint:disable-next-line: interface-name
   interface Application {
     issueClient: IssueClient;
     cluster: (client: any) => any;

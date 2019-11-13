@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router';
+import hljs from 'highlight.js';
+import { StateContext, DispatchContext } from '../context';
+import { fetchArticle } from '../../utils/fetcher';
+import { articleUpdate } from '../redux/action';
+import './index.less';
 
-// interface IArticleProps {}
+function getSSRArticle(id: string) {
+  if (__CLIENT__) {
+    const node = document.getElementById(id);
+    return node && node.innerHTML;
+  }
+  return '';
+}
 
-const Article: React.FunctionComponent<any> = (props) => {
-  return <div>this is article</div>;
-};
-
-export default Article;
+export default function(props: RouteComponentProps) {
+  const { article } = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
+  const articleHTML = getSSRArticle('J_markdown');
+  useEffect(() => {
+    const { id } = props.match.params as { id: number };
+    fetchArticle(id)
+      .then(response => {
+        dispatch(articleUpdate(response.data));
+        const codeList = document.querySelectorAll('.markdown-body pre code');
+        codeList.forEach(dom => {
+          if (dom.className.includes('language-')) {
+            hljs.highlightBlock(dom);
+          }
+        });
+      })
+      .catch((e: Error) => {
+        alert(e.message);
+      });
+    return () => {
+      dispatch(articleUpdate({}));
+    };
+  }, []);
+  return (
+    <div
+      id="J_markdown"
+      className="markdown-body"
+      dangerouslySetInnerHTML={{
+        __html: article.body || articleHTML,
+      }}
+    />
+  );
+}

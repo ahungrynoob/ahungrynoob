@@ -26,31 +26,23 @@ const Dialog: React.FunctionComponent<IDialogProps> = ({
   return (
     <div className={className}>
       <div className={styles.wrapper}>
-        <Avatar
-          wrapperClassName={styles.avatarWrapper}
-          className={styles.avatar}
-          {...avatar}
-        />
+        <Avatar wrapperClassName={styles.avatarWrapper} className={styles.avatar} {...avatar} />
       </div>
       <h1>{title}</h1>
       <p>{description}</p>
       <nav>
-        {menu.map(({ name, href }) => {
-          return (
-            <Link key={name} to={href}>
-              {name}
-            </Link>
-          );
-        })}
+        {menu.map(({ name, href }) => (
+          <Link key={name} to={href}>
+            {name}
+          </Link>
+        ))}
       </nav>
       <div className={styles.contact}>
-        {contact.map(({ icon, href }) => {
-          return (
-            <a key={href} href={href}>
-              <Icon name={icon} />
-            </a>
-          );
-        })}
+        {contact.map(({ icon, href }) => (
+          <a key={href} href={href}>
+            <Icon name={icon} />
+          </a>
+        ))}
       </div>
     </div>
   );

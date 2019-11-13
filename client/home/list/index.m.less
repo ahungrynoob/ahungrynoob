@@ -1,27 +1,36 @@
-@import "../../styles/variable.less";
+@import '../../styles/variable.less';
 
 .list {
-  list-style: none;
-  padding: 0 1em;
   margin: 0;
+  padding: 0 1em;
   font-size: 1.1rem;
+  list-style: none;
   li {
     padding: 1rem 0;
     a {
+      margin-right: 1rem;
       color: currentColor;
       text-decoration: none;
       &:hover {
         color: @active-color;
       }
-      margin-right: 1rem;
     }
     span {
-      white-space: nowrap;
-      background: @grey-bg;
+      padding: 0 0.5rem;
       color: @icon-color-dark;
       font-size: 0.8rem;
-      padding: 0 0.5rem;
+      white-space: nowrap;
+      background: @grey-bg;
       border-radius: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-md-max) {
+  .list {
+    padding: 0;
+    li {
+      padding: 0.5rem 0;
     }
   }
 }

@@ -26,26 +26,18 @@ export default (appInfo: EggAppInfo) => {
   } as any; // todo: will remove after beidou update
 
   config.router = {
-    exts: [ '.jsx', '.ts', '.tsx' ],
+    exts: ['.jsx', '.ts', '.tsx'],
     entry: 'index',
   };
 
   config.router = {
     root: '/pages',
-    exts: [ '.tsx' ],
-  };
-
-  config.isomorphic = {
-    // babel: false,
+    exts: ['.tsx'],
   };
 
   config.webpack = {
-    // your webpack config file
-    custom: {
-      // configPath: path.resolve(__dirname, './webpack.config.ts'),
-    },
     resolve: {
-      extensions: [ '.json', '.js', '.jsx', '.ts', '.tsx' ],
+      extensions: ['.json', '.js', '.jsx', '.ts', '.tsx'],
       alias: {
         client: path.join(__dirname, '../client'),
       },

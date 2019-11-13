@@ -36,3 +36,5 @@ config/ahungrynoob.key
 config/ahungrynoob.ca
 scripts
 .manifest.json
+
+.eslintcache

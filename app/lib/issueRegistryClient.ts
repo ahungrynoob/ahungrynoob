@@ -6,6 +6,7 @@ const OPTIONS = Symbol('IssueRegistryClient#options');
 
 class IssueRegistryClient extends Base {
   [OPTIONS]: IssueRegistryClientOptions;
+
   issues: IIssue[] = [];
 
   constructor(options: IssueRegistryClientOptions) {
@@ -17,8 +18,8 @@ class IssueRegistryClient extends Base {
 
   async init() {
     // it will pull issues here
-    const name = this[OPTIONS].name;
-    const repo = this[OPTIONS].repo;
+    const { name } = this[OPTIONS];
+    const { repo } = this[OPTIONS];
     // todo: will add pagination logic
     const result = await urllib.request(
       `https://api.github.com/repos/${name}/${repo}/issues?creator=${name}`,
@@ -29,12 +30,13 @@ class IssueRegistryClient extends Base {
   }
 
   subscribe(event: string, listener: (data: IIssue[]) => void) {
-    switch (event) {
-      case 'loaded':
-        process.nextTick(() => listener(this.issues || []));
-      //   case 'update':
-      //     this.on(event, listener);
-    }
+    process.nextTick(() => listener(this.issues || []));
+    // switch (event) {
+    //   case 'loaded':
+    //     process.nextTick(() => listener(this.issues || []));
+    //   case 'default':
+    //   case 'update':
+    //     this.on(event, listener);
   }
 
   //   publish() {

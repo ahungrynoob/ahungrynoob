@@ -22,7 +22,7 @@ export interface IHomeProps {
   bgIndex: number;
 }
 
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const Home: React.FunctionComponent<IHomeProps> = props => {
   const { bgIndex } = props;
   const { src, blurSrc } = bgs[bgIndex];
   const { user, menu } = config;

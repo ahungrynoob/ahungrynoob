@@ -14,8 +14,7 @@ export default {
       },
       {
         icon: 'linkedin-in',
-        href:
-          'https://www.linkedin.com/in/%E5%BE%90%E8%BE%BE-%E4%B8%81-842923156/',
+        href: 'https://www.linkedin.com/in/%E5%BE%90%E8%BE%BE-%E4%B8%81-842923156/',
       },
     ],
   },

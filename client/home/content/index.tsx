@@ -13,8 +13,8 @@ import config from '../../config';
 
 const cx = classNames.bind(styles);
 
-const Content: React.FunctionComponent<any> = (props) => {
-  const [ shrink, setShrink ] = useState(false);
+const Content: React.FunctionComponent<any> = () => {
+  const [shrink, setShrink] = useState(false);
   const location = useLocation();
   function toggleShrink() {
     setShrink(!shrink);
@@ -44,13 +44,11 @@ const Content: React.FunctionComponent<any> = (props) => {
             <h1>{config.user.name}</h1>
             <p>{config.user.description}</p>
             <div className={cx('contact')}>
-              {config.user.contact.map(({ icon, href }) => {
-                return (
-                  <a key={href} href={href}>
-                    <Icon name={icon} />
-                  </a>
-                );
-              })}
+              {config.user.contact.map(({ icon, href }) => (
+                <a key={href} href={href}>
+                  <Icon name={icon} />
+                </a>
+              ))}
             </div>
           </div>
           <div onClick={toggleShrink} className={cx('toggle')}>
@@ -65,28 +63,18 @@ const Content: React.FunctionComponent<any> = (props) => {
               </NavLink>
             ))}
           </nav>
-          <div>
-            <TransitionGroup>
-              <CSSTransition
-                key={location.key}
-                timeout={500}
-                classNames={{ ...transitionStyles }}
-              >
-                <Switch location={location}>
-                  <Route
-                    path={[ '/work', '/thought', '/life' ]}
-                    extact
-                    component={List}
-                  />
-                  <Route
-                    path={[ '/work/:id', '/thought/:id', '/life/:id' ]}
-                    extact
-                    component={Article}
-                  />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          </div>
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={500} classNames={{ ...transitionStyles }}>
+              <Switch location={location}>
+                <Route
+                  path={['/work/:id', '/thought/:id', '/life/:id']}
+                  extact
+                  component={Article}
+                />
+                <Route path={['/work', '/thought', '/life']} extact component={List} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
         </div>
       </ShrinkContext.Provider>
     </Fragment>

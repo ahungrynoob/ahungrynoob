@@ -2,12 +2,9 @@ export default [
   {
     url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10',
     repository_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob',
-    labels_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/labels{/name}',
-    comments_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/comments',
-    events_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/events',
+    labels_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/labels{/name}',
+    comments_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/comments',
+    events_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/10/events',
     html_url: 'https://github.com/ahungrynoob/ahungrynoob/issues/10',
     id: 519906309,
     node_id: 'MDU6SXNzdWU1MTk5MDYzMDk=',
@@ -22,18 +19,14 @@ export default [
       url: 'https://api.github.com/users/ahungrynoob',
       html_url: 'https://github.com/ahungrynoob',
       followers_url: 'https://api.github.com/users/ahungrynoob/followers',
-      following_url:
-        'https://api.github.com/users/ahungrynoob/following{/other_user}',
+      following_url: 'https://api.github.com/users/ahungrynoob/following{/other_user}',
       gists_url: 'https://api.github.com/users/ahungrynoob/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/ahungrynoob/subscriptions',
+      starred_url: 'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/ahungrynoob/subscriptions',
       organizations_url: 'https://api.github.com/users/ahungrynoob/orgs',
       repos_url: 'https://api.github.com/users/ahungrynoob/repos',
       events_url: 'https://api.github.com/users/ahungrynoob/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/ahungrynoob/received_events',
+      received_events_url: 'https://api.github.com/users/ahungrynoob/received_events',
       type: 'User',
       site_admin: false,
     },
@@ -41,8 +34,7 @@ export default [
       {
         id: 1655746871,
         node_id: 'MDU6TGFiZWwxNjU1NzQ2ODcx',
-        url:
-          'https://api.github.com/repos/ahungrynoob/ahungrynoob/labels/Thought',
+        url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/labels/Thought',
         name: 'Thought',
         color: 'b5102b',
         default: false,
@@ -63,12 +55,9 @@ export default [
   {
     url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9',
     repository_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob',
-    labels_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/labels{/name}',
-    comments_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/comments',
-    events_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/events',
+    labels_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/labels{/name}',
+    comments_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/comments',
+    events_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/9/events',
     html_url: 'https://github.com/ahungrynoob/ahungrynoob/issues/9',
     id: 519906179,
     node_id: 'MDU6SXNzdWU1MTk5MDYxNzk=',
@@ -83,18 +72,14 @@ export default [
       url: 'https://api.github.com/users/ahungrynoob',
       html_url: 'https://github.com/ahungrynoob',
       followers_url: 'https://api.github.com/users/ahungrynoob/followers',
-      following_url:
-        'https://api.github.com/users/ahungrynoob/following{/other_user}',
+      following_url: 'https://api.github.com/users/ahungrynoob/following{/other_user}',
       gists_url: 'https://api.github.com/users/ahungrynoob/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/ahungrynoob/subscriptions',
+      starred_url: 'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/ahungrynoob/subscriptions',
       organizations_url: 'https://api.github.com/users/ahungrynoob/orgs',
       repos_url: 'https://api.github.com/users/ahungrynoob/repos',
       events_url: 'https://api.github.com/users/ahungrynoob/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/ahungrynoob/received_events',
+      received_events_url: 'https://api.github.com/users/ahungrynoob/received_events',
       type: 'User',
       site_admin: false,
     },
@@ -123,12 +108,9 @@ export default [
   {
     url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6',
     repository_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob',
-    labels_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/labels{/name}',
-    comments_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/comments',
-    events_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/events',
+    labels_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/labels{/name}',
+    comments_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/comments',
+    events_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/events',
     html_url: 'https://github.com/ahungrynoob/ahungrynoob/issues/6',
     id: 516778850,
     node_id: 'MDU6SXNzdWU1MTY3Nzg4NTA=',
@@ -143,18 +125,14 @@ export default [
       url: 'https://api.github.com/users/ahungrynoob',
       html_url: 'https://github.com/ahungrynoob',
       followers_url: 'https://api.github.com/users/ahungrynoob/followers',
-      following_url:
-        'https://api.github.com/users/ahungrynoob/following{/other_user}',
+      following_url: 'https://api.github.com/users/ahungrynoob/following{/other_user}',
       gists_url: 'https://api.github.com/users/ahungrynoob/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/ahungrynoob/subscriptions',
+      starred_url: 'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/ahungrynoob/subscriptions',
       organizations_url: 'https://api.github.com/users/ahungrynoob/orgs',
       repos_url: 'https://api.github.com/users/ahungrynoob/repos',
       events_url: 'https://api.github.com/users/ahungrynoob/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/ahungrynoob/received_events',
+      received_events_url: 'https://api.github.com/users/ahungrynoob/received_events',
       type: 'User',
       site_admin: false,
     },
@@ -184,12 +162,9 @@ export default [
   {
     url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6',
     repository_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob',
-    labels_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/labels{/name}',
-    comments_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/comments',
-    events_url:
-      'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/events',
+    labels_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/labels{/name}',
+    comments_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/comments',
+    events_url: 'https://api.github.com/repos/ahungrynoob/ahungrynoob/issues/6/events',
     html_url: 'https://github.com/ahungrynoob/ahungrynoob/issues/6',
     id: 888888,
     node_id: 'MDU6SXNzdWU1MTY3Nzg4NTA=',
@@ -204,18 +179,14 @@ export default [
       url: 'https://api.github.com/users/ahungrynoob',
       html_url: 'https://github.com/ahungrynoob',
       followers_url: 'https://api.github.com/users/ahungrynoob/followers',
-      following_url:
-        'https://api.github.com/users/ahungrynoob/following{/other_user}',
+      following_url: 'https://api.github.com/users/ahungrynoob/following{/other_user}',
       gists_url: 'https://api.github.com/users/ahungrynoob/gists{/gist_id}',
-      starred_url:
-        'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
-      subscriptions_url:
-        'https://api.github.com/users/ahungrynoob/subscriptions',
+      starred_url: 'https://api.github.com/users/ahungrynoob/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/ahungrynoob/subscriptions',
       organizations_url: 'https://api.github.com/users/ahungrynoob/orgs',
       repos_url: 'https://api.github.com/users/ahungrynoob/repos',
       events_url: 'https://api.github.com/users/ahungrynoob/events{/privacy}',
-      received_events_url:
-        'https://api.github.com/users/ahungrynoob/received_events',
+      received_events_url: 'https://api.github.com/users/ahungrynoob/received_events',
       type: 'User',
       site_admin: false,
     },

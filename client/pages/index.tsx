@@ -12,21 +12,17 @@ export default class View extends React.Component<ViewProps> {
 
   render() {
     const { helper, initialState, html } = this.props;
+    initialState.article = {};
     return (
-      <html>
+      <html lang="en">
         <head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <title>Ahungrynoob</title>
           <link rel="stylesheet" href={helper.asset('manifest.css')} />
           <link rel="stylesheet" href={helper.asset('index.css')} />
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__INITIAL_STATE__ = ${JSON.stringify(
-                initialState,
-              )}`,
+              __html: `window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}`,
             }}
           />
         </head>
@@ -42,8 +38,5 @@ export default class View extends React.Component<ViewProps> {
 
 if (__CLIENT__) {
   const initialState = window.__INITIAL_STATE__;
-  ReactDOM.hydrate(
-    <App {...initialState} />,
-    document.getElementById('container'),
-  );
+  ReactDOM.hydrate(<App {...initialState} />, document.getElementById('container'));
 }
