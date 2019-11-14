@@ -23,22 +23,31 @@ describe('test/controller/home.test.ts', () => {
       mm.restore();
     });
 
-    it('should status 200 and get right content', () =>
+    it('should status 200 and get right title', () =>
       app
         .httpRequest()
         .get('/')
         .expect(200)
         .expect(res => {
-          assert(res.text.indexOf('ahungrynoob') > -1);
+          assert(res.text.indexOf('<title>Ahungrynoob</title>') > -1);
         }));
 
-    it('should status 200 and get right content', () =>
+    it('should status 200 and get right title', () =>
       app
         .httpRequest()
         .get('/work')
         .expect(200)
         .expect(res => {
-          assert(res.text.indexOf('ahungrynoob') > -1);
+          assert(res.text.indexOf('<title>work</title>') > -1);
+        }));
+
+    it('should status 200 and get right article title', () =>
+      app
+        .httpRequest()
+        .get('/thought/519906309')
+        .expect(200)
+        .expect(res => {
+          assert(res.text.indexOf('<title>This is a thought issue</title>') > -1);
         }));
 
     it('should status 404 and get right content', () =>

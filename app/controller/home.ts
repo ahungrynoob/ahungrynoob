@@ -11,7 +11,9 @@ export default class HomeController extends Controller {
 
     const list = ctx.service.issue.list((category + id) as 'work' | 'life' | 'thought');
 
-    const article = ctx.service.issue.article(Number(id));
+    const article = ctx.service.issue.article(Number(id)) || {};
+
+    const title = article.title ? article.title : category || 'Ahungrynoob';
 
     const initialState = {
       context,
@@ -19,6 +21,7 @@ export default class HomeController extends Controller {
       bgIndex,
       list,
       article,
+      title,
     };
     const html = await ctx.renderView(renderPath, {
       initialState,

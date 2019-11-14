@@ -3,10 +3,10 @@ import { Application } from 'beidou';
 type Category = 'work' | 'life' | 'thought';
 
 interface IIssue {
-  id: number;
-  title: string;
+  id?: number;
+  title?: string;
   labels?: Array<{ name: 'Work' | 'Life' | 'Thought' }>;
-  updated_at: string;
+  updated_at?: string;
   body?: string;
 }
 
