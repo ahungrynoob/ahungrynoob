@@ -50,6 +50,15 @@ describe('test/controller/home.test.ts', () => {
           assert(res.text.indexOf('<title>This is a thought issue</title>') > -1);
         }));
 
+    it('should status 200 and get right article title', () =>
+      app
+        .httpRequest()
+        .get('/thought/519906309')
+        .expect(404)
+        .expect(res => {
+          assert(res.text.indexOf('<title>This is a thought issue</title>') > -1);
+        }));
+
     it('should status 404 and get right content', () =>
       app
         .httpRequest()
