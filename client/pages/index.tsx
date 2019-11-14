@@ -17,7 +17,7 @@ export default class View extends React.Component<ViewProps> {
       <html lang="en">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <title>Ahungrynoob</title>
+          <title>{initialState.title}</title>
           <link rel="stylesheet" href={helper.asset('manifest.css')} />
           <link rel="stylesheet" href={helper.asset('index.css')} />
           <script
