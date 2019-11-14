@@ -13,7 +13,7 @@ export default class HomeController extends Controller {
 
     const article = ctx.service.issue.article(Number(id)) || {};
 
-    const title = article.title ? article.title : `Ahungrynoob·${category}` || 'Ahungrynoob·Home';
+    const title = article.title ? article.title : `Ahungrynoob·${category || 'Home'}`;
 
     const initialState = {
       context,
