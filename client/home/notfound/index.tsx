@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames/bind';
@@ -9,7 +9,9 @@ const cx = classNames.bind(styles);
 
 const NotFound: React.FunctionComponent<RouteComponentProps> = props => {
   const history = useHistory();
-
+  useEffect(() => {
+    document.title = 'Ahungrynoob·404';
+  }, []);
   function handleClick() {
     history.push('/');
   }

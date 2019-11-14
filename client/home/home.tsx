@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import config from '../config';
 import Background from './background';
 import Dialog from './dialog';
@@ -26,6 +26,9 @@ const Home: React.FunctionComponent<IHomeProps> = props => {
   const { bgIndex } = props;
   const { src, blurSrc } = bgs[bgIndex];
   const { user, menu } = config;
+  useEffect(() => {
+    document.title = 'Ahungrynoob·Home';
+  }, []);
   return (
     <Background src={src} blurSrc={blurSrc}>
       <Dialog

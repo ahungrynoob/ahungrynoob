@@ -29,7 +29,7 @@ describe('test/controller/home.test.ts', () => {
         .get('/')
         .expect(200)
         .expect(res => {
-          assert(res.text.indexOf('<title>Ahungrynoob</title>') > -1);
+          assert(res.text.indexOf('<title>Ahungrynoob·Home</title>') > -1);
         }));
 
     it('should status 200 and get right title', () =>
@@ -38,7 +38,7 @@ describe('test/controller/home.test.ts', () => {
         .get('/work')
         .expect(200)
         .expect(res => {
-          assert(res.text.indexOf('<title>work</title>') > -1);
+          assert(res.text.indexOf('<title>Ahungrynoob·work</title>') > -1);
         }));
 
     it('should status 200 and get right article title', () =>
