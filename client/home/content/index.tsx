@@ -3,6 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames/bind';
 import { NavLink, Switch, Route, useLocation } from 'react-router-dom';
 import { ShrinkContext } from '../context';
+import Footer from './footer';
 import List from '../list';
 import Article from '../article';
 import Icon from '../components/icon';
@@ -56,25 +57,28 @@ const Content: React.FunctionComponent<any> = () => {
           </div>
         </div>
         <div className={cx('main')}>
-          <nav>
-            {config.menu.map(({ name, href }) => (
-              <NavLink key={name} to={href}>
-                {name}
-              </NavLink>
-            ))}
-          </nav>
-          <TransitionGroup>
-            <CSSTransition key={location.key} timeout={500} classNames={{ ...transitionStyles }}>
-              <Switch location={location}>
-                <Route
-                  path={['/work/:id', '/thought/:id', '/life/:id']}
-                  extact
-                  component={Article}
-                />
-                <Route path={['/work', '/thought', '/life']} extact component={List} />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
+          <div className={cx('content')}>
+            <nav>
+              {config.menu.map(({ name, href }) => (
+                <NavLink key={name} to={href}>
+                  {name}
+                </NavLink>
+              ))}
+            </nav>
+            <TransitionGroup>
+              <CSSTransition key={location.key} timeout={500} classNames={{ ...transitionStyles }}>
+                <Switch location={location}>
+                  <Route
+                    path={['/work/:id', '/thought/:id', '/life/:id']}
+                    extact
+                    component={Article}
+                  />
+                  <Route path={['/work', '/thought', '/life']} extact component={List} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
+          <Footer></Footer>
         </div>
       </ShrinkContext.Provider>
     </Fragment>

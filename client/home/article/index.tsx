@@ -18,6 +18,7 @@ export default function(props: RouteComponentProps) {
   const { article } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
   const articleHTML = getSSRArticle('J_markdown');
+  const articleTitleHTML = getSSRArticle('J_title');
   useEffect(() => {
     const { id } = props.match.params as { id: number };
     fetchArticle(id)
@@ -38,12 +39,15 @@ export default function(props: RouteComponentProps) {
     };
   }, []);
   return (
-    <div
-      id="J_markdown"
-      className="markdown-body"
-      dangerouslySetInnerHTML={{
-        __html: article.body || articleHTML,
-      }}
-    />
+    <div>
+      <h1 id="J_title">{article.title || articleTitleHTML}</h1>
+      <div
+        id="J_markdown"
+        className="markdown-body"
+        dangerouslySetInnerHTML={{
+          __html: article.body || articleHTML,
+        }}
+      />
+    </div>
   );
 }

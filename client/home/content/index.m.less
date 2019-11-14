@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   float: left;
-  width: 35%;
+  width: 30%;
   height: 100%;
   margin-left: 0;
   padding-left: 0;
@@ -26,7 +26,7 @@
     }
   }
   &.shrink {
-    margin-left: -35%;
+    margin-left: -30%;
     box-shadow: none;
     .toggle {
       right: -2rem;
@@ -76,10 +76,12 @@
 .main {
   height: 100%;
   padding: 0 1rem;
-  // bfc
   overflow: auto;
+  // bfc
   background-color: #fff;
-
+  .content {
+    min-height: 100%;
+  }
   nav {
     margin-bottom: 1rem;
     padding: 2rem 1rem 1rem;
