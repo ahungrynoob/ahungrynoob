@@ -27,6 +27,9 @@ export default class View extends React.Component<ViewProps> {
           />
         </head>
         <body>
+          <div style={{ display: 'none' }}>
+            <img src="https://avatars1.githubusercontent.com/u/26563778" alt="logo" />
+          </div>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
