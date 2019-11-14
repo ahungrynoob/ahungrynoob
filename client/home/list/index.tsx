@@ -16,6 +16,7 @@ export default function(props: RouteComponentProps) {
   const dispatch = useContext(DispatchContext);
   useEffect(() => {
     const category = getCategory(props.match.path);
+    document.title = `Ahungrynoob·${category}`;
     fetchArticles(category)
       .then(response => {
         dispatch(listUpdate(response.data));
