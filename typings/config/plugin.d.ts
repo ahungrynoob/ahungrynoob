@@ -1,7 +1,7 @@
 // This file is created by egg-ts-helper@1.25.6
 // Do not modify this file!!!!!!!!!
 
-import 'beidou';
+import { EggPluginItem } from 'beidou';
 import 'egg-onerror';
 import 'egg-session';
 import 'egg-watcher';
@@ -18,7 +18,7 @@ import 'beidou-view-react';
 import 'beidou-webpack';
 import 'beidou-isomorphic';
 import 'beidou-router';
-import { EggPluginItem } from 'beidou';
+
 declare module 'beidou' {
   interface EggPlugin {
     onerror?: EggPluginItem;

@@ -10,7 +10,7 @@
     "check": "tsc",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
     "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint",
+    "lint-staged:js": "eslint --ext .ts,.tsx",
     "lint:fix": "eslint --fix --cache --format=pretty **/*.{ts,tsx} && npm run lint:style",
     "lint:js": "eslint --cache --format=pretty **/*.{ts,tsx}",
     "lint:prettier": "check-prettier lint",
@@ -33,7 +33,7 @@
       "prettier --write",
       "git add"
     ],
-    "**/*.{ts,tsx}": "npm run lint-staged:js"
+    "**/*(!.d).{ts,tsx}": "npm run lint-staged:js"
   },
   "dependencies": {
     "beidou": "^2.2.1",
@@ -51,6 +51,7 @@
     "react-transition-group": "^2.2.1",
     "sdk-base": "^3.6.0",
     "showdown": "^1.9.1",
+    "showdown-toc": "^1.0.1",
     "typesafe-actions": "^5.1.0",
     "typescript": "^3.6.4",
     "unfetch": "^4.1.0",
@@ -72,7 +73,7 @@
     "egg-mock": "^3.24.1",
     "eslint": "^6.6.0",
     "husky": "^3.0.9",
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "stylelint": "^11.1.1"

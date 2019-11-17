@@ -1,11 +1,10 @@
 import { Service } from 'beidou';
 import Showdown from 'showdown';
+import showdownToc from 'showdown-toc';
 import { IIssue, Category } from 'typings';
 
 Showdown.setFlavor('github');
 export default class IssueService extends Service {
-  showdown = new Showdown.Converter();
-
   list(key: Category): IIssue[] {
     const list = this.app.issueClient.get(key);
     return list.map(({ id, title, updated_at }) => ({
@@ -24,6 +23,9 @@ export default class IssueService extends Service {
   }
 
   render(content: string) {
-    return this.showdown.makeHtml(content);
+    // const toc = [];
+    const showdown = new Showdown.Converter({ extensions: [showdownToc()] });
+    const result = showdown.makeHtml(content);
+    return result;
   }
 }
