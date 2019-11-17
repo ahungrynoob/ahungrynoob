@@ -18,6 +18,10 @@ export default class View extends React.Component<ViewProps> {
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <title>{initialState.title}</title>
+          <link
+            rel="apple-touch-icon"
+            href="//avatars1.githubusercontent.com/u/26563778?s=460&v=4"
+          ></link>
           <link rel="stylesheet" href={helper.asset('manifest.css')} />
           <link rel="stylesheet" href={helper.asset('index.css')} />
           <script

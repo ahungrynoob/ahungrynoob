@@ -78,7 +78,7 @@ const Content: React.FunctionComponent<any> = () => {
               </CSSTransition>
             </TransitionGroup>
           </div>
-          <Footer></Footer>
+          <Footer />
         </div>
       </ShrinkContext.Provider>
     </Fragment>

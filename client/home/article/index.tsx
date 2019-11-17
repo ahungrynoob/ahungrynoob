@@ -24,7 +24,7 @@ export default function(props: RouteComponentProps) {
     fetchArticle(id)
       .then(response => {
         dispatch(articleUpdate(response.data));
-        document.title = `Ahungrynoob·${response.data.title}`;
+        document.title = response.data.title;
         const codeList = document.querySelectorAll('.markdown-body pre code');
         codeList.forEach(dom => {
           if (dom.className.includes('language-')) {
