@@ -1,5 +1,13 @@
 {
   "plugins": [
     "lub-plugin-publish"
-  ]
+  ],
+  "task": {
+    "start": [
+      {
+        "command": "sh ./scripts/deploy.sh",
+        "order": "after"
+      }
+    ]
+  }
 }
