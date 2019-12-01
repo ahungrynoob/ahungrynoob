@@ -1,6 +1,6 @@
 {
   "name": "ahungrynoob",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My personal blog",
   "scripts": {
     "start": "beidou start --port=6001 --daemon  --title=egg-server-ahungrynoob",

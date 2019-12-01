@@ -3,7 +3,7 @@
     "lub-plugin-publish"
   ],
   "task": {
-    "start": [
+    "publish": [
       {
         "command": "sh ./scripts/deploy.sh",
         "order": "after"
