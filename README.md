@@ -2,7 +2,4 @@
 
 ### 你好，世界 👋
 
-- :orange_book: Focusing on Rust
-- :hammer: Try to light diode
-- :chart_with_upwards_trend: Look for good company
 - :heart: Code lover
